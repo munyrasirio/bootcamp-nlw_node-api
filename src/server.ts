@@ -3,13 +3,20 @@ import express from "express";
 const port = 3333;
 const app = express();
 
-app.get("/ads", (req, res) => {
-  return res.send([
-    { id: 1, name: "Anúncio 1" },
-    { id: 2, name: "Anúncio 2" },
-    { id: 3, name: "Anúncio 3" },
-    { id: 4, name: "Anúncio 4" },
-  ]);
+app.get("/games", (req, res) => res.json({}));
+
+app.post("/ads", (req, res) => res.status(201).json({}));
+
+app.get("/games/:id/ads", (req, res) => {
+  const gameId = req.params.id;
+
+  return res.send();
+});
+
+app.get("/ads/:id/discord", (req, res) => {
+  const adId = req.params.id;
+
+  return res.status(200).json({});
 });
 
 app.listen(port);
